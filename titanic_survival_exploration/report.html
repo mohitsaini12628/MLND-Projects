@@ -13159,7 +13159,7 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">predictions_3</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
@@ -13230,7 +13230,7 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
@@ -13245,9 +13245,14 @@ Make sure to keep track of the various features and conditions you tried before 
 
 
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Predictions have an accuracy of 80.36%.
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-af8698d61624&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">print</span> accuracy_score<span class="ansi-blue-fg">(</span>outcomes<span class="ansi-blue-fg">,</span> predictions<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;accuracy_score&#39; is not defined</pre>
 </div>
 </div>
 
@@ -13261,6 +13266,38 @@ Make sure to keep track of the various features and conditions you tried before 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer</strong>: 80.36%</p>
+<p>Steps to increase accuracy:</p>
+<p>1) I realised that if passenger is a male and belongs to Lower class:</p>
+
+<pre><code>i) the passengers with age greater than or equal to 10 died,
+
+ii) passengers having age less than 10 survived.
+
+</code></pre>
+<p>2) I further divided: The male passengers travelling in Lower class having age greater than 10:</p>
+
+<pre><code>i) passengers with age between 20 and 30 and having parents or children actually survived.
+
+</code></pre>
+<p>3) I simpler trend was observed with male passengers travelling in Middle class:</p>
+
+<pre><code>i) among them, passengers having age less than 10 survived while others did not.
+
+</code></pre>
+<p>4) For Upper class Male passengers:</p>
+
+<pre><code> i) all the passengers with age greater than 40 were not able to survive.
+
+ ii) for passengers with age less than 40: for passengers with age between 10 and 20, did not survive.
+
+</code></pre>
+<p>5) For Female Passengers:</p>
+
+<pre><code>i) All the passengers with age greater than 50 or less than 40, survived.
+
+ii) The passengers with age between 40 and 50:
+
+    i) Passengers travelling in Lower class, did not survive.</code></pre>
 
 </div>
 </div>
@@ -13282,7 +13319,13 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: Age, Gender and Pclass</p>
+<p><strong>Answer</strong>: Supervised learning can be applied in <strong>predicting house prices</strong> where the features could be:</p>
+<p>1) Area of the land</p>
+<p>2) Number of bedrooms</p>
+<p>3) Number of floors</p>
+<p>4) Whether the house if facing the Road or not.</p>
+<p>5) Is the house already furnished.</p>
+<p>6) The material quality used in building the house.</p>
 
 </div>
 </div>
