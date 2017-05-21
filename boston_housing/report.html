@@ -11779,7 +11779,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11854,14 +11854,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
 <span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
@@ -13796,12 +13796,13 @@ clearly, training score values are higher and validation score values are lower 
 <p><strong>K-Fold Cross-validation:</strong></p>
 <p>Suppose we have 200 data points. In k-fold cross-validation, we divide these 200 data points into k subgroups. Let us assume k=5. Hence, each subgroup is having 40 data points.
 Now, we iterate the following 5 times (k times in general) such that each iteration is represented by i, i lies between 1 and k:</p>
-<p>[ <strong>We take ith subgroup as cross-validation set and the rest k-1 subgroups as training set.
-We train our model with training set and validate the model using cross-validation set. </strong>]</p>
-<p><em>With every validation, we change our model a bit so that it generalizes well. This results in validating the model with k different validation sets. Hence, our model is optimized.</em>
-Cross validation is useful because it maximize both the training and testing data so that the data we can use to provide best learning result and best validation - this is extremely useful when the dataset is limited in size</p>
+<p>[ <strong>1) We take ith subgroup as cross-validation set and the rest k-1 subgroups as training set.
+2) We train our model with training set and validate the model using cross-validation set. And hence find cross validation error for each cross validations set. This error is called cross validation error.</strong>]</p>
+<p>As we finish k iterations, we have k different cross validation errors for respective cross validation sets. Now we take average of these cross validation errors.</p>
+<p>We perform the above procedure for different models with different parameters/settings and select the model which have lowest cross validation error.</p>
+<p>Cross validation is useful because it maximize both the training and testing data so that the data we can use to provide best learning result and best validation - this is extremely useful when the dataset is limited in size.</p>
 <p><strong>What benefit does this technique provide for grid search when optimizing a model?</strong></p>
-<p>Grid search means we have a set of models (which differ from each other in their hyperparameter values, lying on a grid). We then train each of the models and then evaluate them using cross-validation. Since, we would be having k different sets to evaluate from, we get better accuracy with k-fold cross-validation. And since, each of the example is used to evaluate the model, we get a better accuracy by this.</p>
+<p>Grid search means we have a set of models (which differ from each other in their hyperparameter values, lying on a grid). We then train each of the models and then evaluate them using cross-validation. Using k-fold cross validation we would be having a better results for cross validation errors for each model. We then choose the model which have lowest cross validation error. That is, if we use single validation set and perform grid search then it may probably happen that we select best parameters for that specific validation set. But using k-fold we perform grid search on various validation set so we select best parameter for generalize case.</p>
 
 </div>
 </div>
